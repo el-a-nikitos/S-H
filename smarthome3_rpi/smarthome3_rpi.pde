@@ -31,9 +31,9 @@ void setup()
   scrollBar_blue1 = new scrollBar(0.1*width, 0.25*height, 0.8*width, 0.04*height);
   scrollBar_blue1.str_name = "спальня, синий";
   
-  size(480, 720);
+  //size(480, 720);
   //size(240, 360);
-  //fullScreen();
+  fullScreen();
  
   frameRate(20);
   
@@ -56,10 +56,21 @@ void draw()
   scrollBar_green1.draw_scrollBar();
   scrollBar_blue1.draw_scrollBar();
   
-  scrollBar_red1.hook_the_mose();
+  //scrollBar_red1.hook_the_mose();
+  //scrollBar_green1.hook_the_mose();
+  //scrollBar_blue1.hook_the_mose();
   
   pwm_red1.write( scrollBar_red1.int_value );
+  pwm_green1.write( scrollBar_green1.int_value );
+  pwm_blue1.write( scrollBar_blue1.int_value );
   
-  
+  //text(scrollBar_red1.int_value, 100, 500);
   //color_spin_1(); 
+}
+
+void mouseDragged()
+{
+  scrollBar_red1.hook_the_mose();
+  scrollBar_green1.hook_the_mose();
+  scrollBar_blue1.hook_the_mose();
 }

@@ -14,8 +14,8 @@ void angle_calculate()
 
 void draw_frameRate()
 {
-  fill(200);
-  textSize(0.03*height);
+  fill(150);
+  textSize(0.02*height);
   textAlign(RIGHT, TOP);
   text(round(frameRate), width, 0);
 }

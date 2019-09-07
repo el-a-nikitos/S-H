@@ -12,7 +12,7 @@ public class scrollBar
               
   public String str_name = "no name";    
   
-  public boolean b_spin = false;
+  public boolean b_lock = false;
               
   public scrollBar(float float_X_coordinate, float float_Y_coordinate, float float_width, float float_height)
   {

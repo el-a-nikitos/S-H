@@ -6,14 +6,16 @@ nikitos_PWM pwm_red1  = new nikitos_PWM(this, 13),
 scrollBar scrollBar_red1,
           scrollBar_green1,
           scrollBar_blue1;
+          
+rectButton  rectButton_stop1,
+            rectButton_spin1;
 
 //byte  byte_rpi_channal_red1 = 13,
 //      byte_rpi_channal_green1 = 12,
 //      byte_rpi_channal_blue1 = 6;
       
-int int_counter = 0;
-
-byte pwm_duty = 50;
+//int int_test_counter = 0;
+//byte pwm_duty = 50;
 
 float angle1, angle2, angle3;
 
@@ -31,9 +33,15 @@ void setup()
   scrollBar_blue1 = new scrollBar(0.1*width, 0.25*height, 0.8*width, 0.04*height);
   scrollBar_blue1.str_name = "спальня, синий";
   
-  //size(480, 720);
+  rectButton_stop1 = new rectButton("stop_led1", 0.1*width, 0.32*height, 0.35*width, 0.04*height);
+  rectButton_stop1.str_name = "ВЫКЛ. спальню";
+  
+  rectButton_spin1 = new rectButton("spin_led1", 0.55*width, 0.32*height, 0.35*width, 0.04*height);
+  rectButton_spin1.str_name = "ПЕРЕЛИВАТЬСЯ";
+  
+  size(480, 720);
   //size(240, 360);
-  fullScreen();
+  //fullScreen();
  
   frameRate(20);
   
@@ -56,6 +64,9 @@ void draw()
   scrollBar_green1.draw_scrollBar();
   scrollBar_blue1.draw_scrollBar();
   
+  rectButton_stop1.draw_rectButton();
+  rectButton_spin1.draw_rectButton();
+  
   //scrollBar_red1.hook_the_mose();
   //scrollBar_green1.hook_the_mose();
   //scrollBar_blue1.hook_the_mose();
@@ -64,7 +75,7 @@ void draw()
   pwm_green1.write( scrollBar_green1.int_value );
   pwm_blue1.write( scrollBar_blue1.int_value );
   
-  //text(scrollBar_red1.int_value, 100, 500);
+  //text(int_test_counter, 100, 500);
   //color_spin_1(); 
 }
 
@@ -73,4 +84,10 @@ void mouseDragged()
   scrollBar_red1.hook_the_mose();
   scrollBar_green1.hook_the_mose();
   scrollBar_blue1.hook_the_mose();
+}
+
+void mousePressed()
+{
+  rectButton_stop1.click();
+  rectButton_spin1.click();
 }

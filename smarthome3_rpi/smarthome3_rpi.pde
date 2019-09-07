@@ -1,51 +1,65 @@
 import processing.io.*;
-nikitos_PWM pwm_red1, pwm_green1, pwm_blue1;
+nikitos_PWM pwm_red1  = new nikitos_PWM(this, 13), 
+            pwm_green1  = new nikitos_PWM(this, 12), 
+            pwm_blue1 = new nikitos_PWM(this, 6);
 
-byte  byte_rpi_channal_red1 = 13,
-      byte_rpi_channal_green1 = 12,
-      byte_rpi_channal_blue1 = 6;
+scrollBar scrollBar_red1,
+          scrollBar_green1,
+          scrollBar_blue1;
+
+//byte  byte_rpi_channal_red1 = 13,
+//      byte_rpi_channal_green1 = 12,
+//      byte_rpi_channal_blue1 = 6;
       
 int int_counter = 0;
 
 byte pwm_duty = 50;
 
-//PWM pri_pwm_red1 = new PWM("pwmchip0/pwm13");
+float angle1, angle2, angle3;
 
 void setup()
 {
-  pwm_red1 = new nikitos_PWM(this, byte_rpi_channal_red1);
-  pwm_green1 = new nikitos_PWM(this, byte_rpi_channal_green1);
-  pwm_blue1 = new nikitos_PWM(this, byte_rpi_channal_blue1);
-  
   //pwm_red1.attach(byte_rpi_channal_red1);
   //pwm_green1.attach(byte_rpi_channal_green1);
   //pwm_blue1.attach(byte_rpi_channal_blue1);
+  scrollBar_red1 = new scrollBar(0.1*width, 0.05*height, 0.8*width, 0.04*height);
+  scrollBar_red1.str_name = "спальня, красный";
   
-  size(240, 360);
+  scrollBar_green1 = new scrollBar(0.1*width, 0.15*height, 0.8*width, 0.04*height);
+  scrollBar_green1.str_name = "спальня, зеленый";
+  
+  scrollBar_blue1 = new scrollBar(0.1*width, 0.25*height, 0.8*width, 0.04*height);
+  scrollBar_blue1.str_name = "спальня, синий";
+  
+  size(480, 720);
+  //size(240, 360);
   //fullScreen();
  
   frameRate(20);
   
-  //println("start");
-  //thread("counter");
-  //thread("pwm1");
+  background(0);
+
+  //pwm_red1.write(0);
+  //pwm_green1.write(0);
+  //pwm_blue1.write(0);
+  
+  delay(3000);
 }
 
 void draw()
 {  
-  background(50);
+  background(100);
+  angle_calculate();
+  draw_frameRate();
   
-  float angle1 = 90 + sin(frameCount / 50.0)*85;
-  float angle2 = 90 + sin(frameCount / 50.0 + PI/3)*85;
-  float angle3 = 90 + sin(frameCount / 50.0 + 2*PI/3)*85;
+  scrollBar_red1.draw_scrollBar();
+  scrollBar_green1.draw_scrollBar();
+  scrollBar_blue1.draw_scrollBar();
   
-  pwm_red1.write(angle1);
-  pwm_green1.write(angle2);
-  pwm_blue1.write(angle3);
+  scrollBar_red1.hook_the_mose();
   
-  fill(200);
-  textSize(0.03*height);
-  textAlign(RIGHT, TOP);
-  text(round(frameRate), width, 0);
-
+  pwm_red1.write( scrollBar_red1.int_value );
+  
+  
+  //color_spin_1(); 
 }

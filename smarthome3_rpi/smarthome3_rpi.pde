@@ -33,23 +33,22 @@ void setup()
   scrollBar_blue1 = new scrollBar(0.1*width, 0.25*height, 0.8*width, 0.04*height);
   scrollBar_blue1.str_name = "спальня, синий";
   
-  rectButton_stop1 = new rectButton("stop_led1", 0.1*width, 0.32*height, 0.35*width, 0.04*height);
+  rectButton_stop1 = new rectButton("stop_led1", 0.1*width, 0.32*height, 0.35*width, 0.04*height, false);
   rectButton_stop1.str_name = "ВЫКЛ. спальню";
   
-  rectButton_spin1 = new rectButton("spin_led1", 0.55*width, 0.32*height, 0.35*width, 0.04*height);
+  rectButton_spin1 = new rectButton("spin_led1", 0.55*width, 0.32*height, 0.35*width, 0.04*height, true);
   rectButton_spin1.str_name = "ПЕРЕЛИВАТЬСЯ";
   
-  size(480, 720);
-  //size(240, 360);
-  //fullScreen();
+  //size(480, 720);
+  fullScreen();
  
   frameRate(20);
   
   background(0);
 
-  //pwm_red1.write(0);
-  //pwm_green1.write(0);
-  //pwm_blue1.write(0);
+  pwm_red1.write(0);
+  pwm_green1.write(0);
+  pwm_blue1.write(0);
   
   delay(3000);
 }
@@ -70,10 +69,16 @@ void draw()
   //scrollBar_red1.hook_the_mose();
   //scrollBar_green1.hook_the_mose();
   //scrollBar_blue1.hook_the_mose();
-  
-  pwm_red1.write( scrollBar_red1.int_value );
-  pwm_green1.write( scrollBar_green1.int_value );
-  pwm_blue1.write( scrollBar_blue1.int_value );
+  if ( rectButton_spin1.b_click == false )
+  {
+    pwm_red1.write( scrollBar_red1.int_value );
+    pwm_green1.write( scrollBar_green1.int_value );
+    pwm_blue1.write( scrollBar_blue1.int_value );
+  }
+  else
+  {
+    color_spin_1();
+  }
   
   //text(int_test_counter, 100, 500);
   //color_spin_1(); 

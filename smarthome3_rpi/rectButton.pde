@@ -8,15 +8,17 @@ public class rectButton
   public String str_name = "no name",
                 str_thread;
   
-  public boolean b_click = false;
+  public boolean  b_click = false,
+                  b_withHook;
   
-  public rectButton(String str_thread, float float_X_coordinate, float float_Y_coordinate, float float_width, float float_height)
+  public rectButton(String str_thread, float float_X_coordinate, float float_Y_coordinate, float float_width, float float_height, boolean b_withHook)
   {
     this.int_X_coordinate = round( float_X_coordinate );
     this.int_Y_coordinate = round( float_Y_coordinate );
     this.int_width = round( float_width );
     this.int_height = round( float_height );
     this.str_thread = str_thread;
+    this.b_withHook = b_withHook;
   }
   
   public void draw_rectButton()
@@ -43,7 +45,7 @@ public class rectButton
     textAlign(CENTER, CENTER);
     text(str_name, int_X_coordinate + int_width/2, int_Y_coordinate + int_height/2);
     
-    if (b_click == true)
+    if ( (b_click == true) & (b_withHook == false) )
     {
       b_click = false;
       //delay(500);
@@ -54,7 +56,7 @@ public class rectButton
   {
     if ( (mouseX>int_X_coordinate) & (mouseX<(int_X_coordinate+int_width)) & (mouseY>int_Y_coordinate) & (mouseY<int_Y_coordinate+int_height) )
     {
-      b_click = true;
+      b_click = b_click^true;
       
      thread(str_thread);
     }

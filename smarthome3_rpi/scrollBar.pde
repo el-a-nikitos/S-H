@@ -44,7 +44,7 @@ public class scrollBar
   
   public void hook_the_mose()
   {
-    if ( (mouseX>int_X_coordinate) & (mouseX<(int_X_coordinate+int_width)) & (mouseY>int_Y_coordinate) & (mouseY<int_Y_coordinate+int_height) )
+    if ( (mouseX>int_X_coordinate) & (mouseX<(int_X_coordinate+int_width)) & (mouseY>int_Y_coordinate) & (mouseY<int_Y_coordinate+int_height) & (b_lock == false) )
     {
       int_position = round( int_max_position*(mouseX - int_X_coordinate - int_height/2)/(int_width-int_height) );
       if (int_position<0) {int_position = 0;}

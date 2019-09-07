@@ -42,7 +42,7 @@ public class scrollBar
     rect(int_X_coordinate + (int_width-int_height)*int_position/int_max_position, int_Y_coordinate, int_height, int_height);
   }
   
-  public void hook_the_mose()
+  public void hook_the_mouse()
   {
     if ( (mouseX>int_X_coordinate) & (mouseX<(int_X_coordinate+int_width)) & (mouseY>int_Y_coordinate) & (mouseY<int_Y_coordinate+int_height) & (b_lock == false) )
     {

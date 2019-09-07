@@ -66,9 +66,9 @@ void draw()
   rectButton_stop1.draw_rectButton();
   rectButton_spin1.draw_rectButton();
   
-  //scrollBar_red1.hook_the_mose();
-  //scrollBar_green1.hook_the_mose();
-  //scrollBar_blue1.hook_the_mose();
+  //scrollBar_red1.hook_the_mouse();
+  //scrollBar_green1.hook_the_mouse();
+  //scrollBar_blue1.hook_the_mouse();
   if ( rectButton_spin1.b_click == false )
   {
     pwm_red1.write( scrollBar_red1.int_value );
@@ -86,9 +86,9 @@ void draw()
 
 void mouseDragged()
 {
-  scrollBar_red1.hook_the_mose();
-  scrollBar_green1.hook_the_mose();
-  scrollBar_blue1.hook_the_mose();
+  scrollBar_red1.hook_the_mouse();
+  scrollBar_green1.hook_the_mouse();
+  scrollBar_blue1.hook_the_mouse();
 }
 
 void mousePressed()

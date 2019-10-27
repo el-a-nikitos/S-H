@@ -1,7 +1,7 @@
 import processing.io.*;
-nikitos_PWM pwm_red1  = new nikitos_PWM(this, 13), 
-            pwm_green1  = new nikitos_PWM(this, 12), 
-            pwm_blue1 = new nikitos_PWM(this, 6);
+SoftwareServo pwm_red1 = new SoftwareServo(this, 13), 
+              pwm_green1 = new SoftwareServo(this, 12), 
+              pwm_blue1 = new SoftwareServo(this, 6);
 
 scrollBar scrollBar_red1,
           scrollBar_green1,

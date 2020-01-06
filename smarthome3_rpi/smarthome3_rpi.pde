@@ -8,11 +8,10 @@ scrollBar scrollBar_red1,
           scrollBar_blue1;
           
 rectButton  rectButton_stop1,
-            rectButton_spin1;
+            rectButton_spin1,
+            rectButton_bedLED;
 
-//byte  byte_rpi_channal_red1 = 13,
-//      byte_rpi_channal_green1 = 12,
-//      byte_rpi_channal_blue1 = 6;
+int  int_rpi_channal_bedLED = 5;
       
 //int int_test_counter = 0;
 //byte pwm_duty = 50;
@@ -21,9 +20,9 @@ float angle1, angle2, angle3;
 
 void setup()
 {
-  //pwm_red1.attach(byte_rpi_channal_red1);
-  //pwm_green1.attach(byte_rpi_channal_green1);
-  //pwm_blue1.attach(byte_rpi_channal_blue1);
+  GPIO.pinMode( int_rpi_channal_bedLED, GPIO.OUTPUT );
+  GPIO.digitalWrite( int_rpi_channal_bedLED, GPIO.LOW );
+  
   scrollBar_red1 = new scrollBar(0.1*width, 0.05*height, 0.8*width, 0.04*height);
   scrollBar_red1.str_name = "спальня, красный";
   
@@ -33,11 +32,14 @@ void setup()
   scrollBar_blue1 = new scrollBar(0.1*width, 0.25*height, 0.8*width, 0.04*height);
   scrollBar_blue1.str_name = "спальня, синий";
   
-  rectButton_stop1 = new rectButton("stop_led1", 0.1*width, 0.32*height, 0.35*width, 0.04*height, false);
+  rectButton_stop1 = new rectButton("stop_led1", 0.1*width, 0.39*height, 0.35*width, 0.04*height, false);
   rectButton_stop1.str_name = "ВЫКЛ. спальню";
   
-  rectButton_spin1 = new rectButton("spin_led1", 0.55*width, 0.32*height, 0.35*width, 0.04*height, true);
+  rectButton_spin1 = new rectButton("spin_led1", 0.55*width, 0.39*height, 0.35*width, 0.04*height, true);
   rectButton_spin1.str_name = "ПЕРЕЛИВАТЬСЯ";
+  
+  rectButton_bedLED = new rectButton("bed_LED", 0.1*width, 0.32*height, 0.8*width, 0.04*height, true);
+  rectButton_bedLED.str_name = "ПОДСВЕТКА КРОВАТИ";
   
   //size(480, 720);
   fullScreen();
@@ -65,6 +67,7 @@ void draw()
   
   rectButton_stop1.draw_rectButton();
   rectButton_spin1.draw_rectButton();
+  rectButton_bedLED.draw_rectButton();
   
   //scrollBar_red1.hook_the_mouse();
   //scrollBar_green1.hook_the_mouse();
@@ -95,4 +98,5 @@ void mousePressed()
 {
   rectButton_stop1.click();
   rectButton_spin1.click();
+  rectButton_bedLED.click();
 }

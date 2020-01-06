@@ -15,6 +15,15 @@ void stop_led1()
   bed_LED();
 }
 
+void stop_led3()
+{ 
+  scrollBar_blue3.int_position = 0;
+  scrollBar_blue3.int_value = 0;
+  
+  //rectButton_spin1.b_click = false;
+  //spin_led1();
+}
+
 void spin_led1()
 {
   if (rectButton_spin1.b_click == true)

@@ -1,7 +1,7 @@
 import processing.io.*;
-SoftwareServo pwm_red1 = new SoftwareServo(this, 13), 
-              pwm_green1 = new SoftwareServo(this, 12), 
-              pwm_blue1 = new SoftwareServo(this, 6);
+//SoftwareServo pwm_red1 = new SoftwareServo(this, 13), 
+//              pwm_green1 = new SoftwareServo(this, 12), 
+//              pwm_blue1 = new SoftwareServo(this, 6);
 
 scrollBar scrollBar_red1,
           scrollBar_green1,
@@ -11,7 +11,10 @@ rectButton  rectButton_stop1,
             rectButton_spin1,
             rectButton_bedLED;
 
-int  int_rpi_channal_bedLED = 5;
+int   int_rpi_channal_bedLED = 5,
+      int_rpi_channal_pwm_red1 = 13,
+      int_rpi_channal_pwm_green1 = 12,
+      int_rpi_channal_pwm_blue1 = 6;
       
 //int int_test_counter = 0;
 //byte pwm_duty = 50;
@@ -22,6 +25,10 @@ void setup()
 {
   GPIO.pinMode( int_rpi_channal_bedLED, GPIO.OUTPUT );
   GPIO.digitalWrite( int_rpi_channal_bedLED, GPIO.LOW );
+  
+  GPIO.pinMode( int_rpi_channal_pwm_red1, GPIO.OUTPUT );
+  GPIO.pinMode( int_rpi_channal_pwm_green1, GPIO.OUTPUT );
+  GPIO.pinMode( int_rpi_channal_pwm_blue1, GPIO.OUTPUT );
   
   scrollBar_red1 = new scrollBar(0.1*width, 0.05*height, 0.8*width, 0.04*height);
   scrollBar_red1.str_name = "спальня, красный";
@@ -48,9 +55,9 @@ void setup()
   
   background(0);
 
-  pwm_red1.write(0);
-  pwm_green1.write(0);
-  pwm_blue1.write(0);
+  //pwm_red1.write(0);
+  //pwm_green1.write(0);
+  //pwm_blue1.write(0);
   
   delay(3000);
 }
@@ -74,9 +81,12 @@ void draw()
   //scrollBar_blue1.hook_the_mouse();
   if ( rectButton_spin1.b_click == false )
   {
-    pwm_red1.write( scrollBar_red1.int_value );
-    pwm_green1.write( scrollBar_green1.int_value );
-    pwm_blue1.write( scrollBar_blue1.int_value );
+    //pwm_red1.write( scrollBar_red1.int_value );
+    //pwm_green1.write( scrollBar_green1.int_value );
+    //pwm_blue1.write( scrollBar_blue1.int_value );
+    led_write(int_rpi_channal_pwm_red1, scrollBar_red1.int_value);
+    led_write(int_rpi_channal_pwm_green1, scrollBar_green1.int_value);
+    led_write(int_rpi_channal_pwm_blue1, scrollBar_blue1.int_value);
   }
   else
   {

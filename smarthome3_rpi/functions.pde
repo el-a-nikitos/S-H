@@ -1,8 +1,12 @@
 void color_spin_1()
 {
-  pwm_red1.write(angle1);
-  pwm_green1.write(angle2);
-  pwm_blue1.write(angle3);
+  //pwm_red1.write(angle1);
+  //pwm_green1.write(angle2);
+  //pwm_blue1.write(angle3);
+  
+  led_write(int_rpi_channal_pwm_red1, round(angle1) );
+  led_write(int_rpi_channal_pwm_green1, round(angle2) );
+  led_write(int_rpi_channal_pwm_blue1, round(angle3) );
 }
 
 void angle_calculate()
@@ -18,4 +22,16 @@ void draw_frameRate()
   textSize(0.02*height);
   textAlign(RIGHT, TOP);
   text(round(frameRate), width, 0);
+}
+
+void led_write(int int_rpi_channal, int int_value)
+{
+  if (int_value > 90)
+  {
+    GPIO.digitalWrite(int_rpi_channal, GPIO.HIGH);
+  }
+  else
+  {
+    GPIO.digitalWrite(int_rpi_channal, GPIO.LOW);
+  }
 }

@@ -3,10 +3,11 @@ void color_spin_1()
   //pwm_red1.write(angle1);
   //pwm_green1.write(angle2);
   //pwm_blue1.write(angle3);
-  
+  /*
   led_write(int_rpi_channal_pwm_red1, round(angle1) );
   led_write(int_rpi_channal_pwm_green1, round(angle2) );
   led_write(int_rpi_channal_pwm_blue1, round(angle3) );
+  */
 }
 
 void angle_calculate()

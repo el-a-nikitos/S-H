@@ -12,20 +12,21 @@ rectButton  rectButton_stop1,
             rectButton_stop3,
             rectButton_spin1,
             rectButton_bedLED;
-
+/*
 int   int_rpi_channal_bedLED = 5,
       int_rpi_channal_pwm_red1 = 13,
       int_rpi_channal_pwm_green1 = 12,
       int_rpi_channal_pwm_blue1 = 6,
       int_rpi_channal_pwm_blue3 = 11;
-      
+ */
+ 
 //int int_test_counter = 0;
 //byte pwm_duty = 50;
 
 float angle1, angle2, angle3;
 
 void setup()
-{
+{/*
   GPIO.pinMode( int_rpi_channal_bedLED, GPIO.OUTPUT );
   GPIO.digitalWrite( int_rpi_channal_bedLED, GPIO.LOW );
   
@@ -34,7 +35,7 @@ void setup()
   GPIO.pinMode( int_rpi_channal_pwm_blue1, GPIO.OUTPUT );
   
   GPIO.pinMode( int_rpi_channal_pwm_blue3, GPIO.OUTPUT );
-  
+  */
   scrollBar_red1 = new scrollBar(0.1*width, 0.05*height, 0.8*width, 0.04*height);
   scrollBar_red1.str_name = "спальня, красный";
   
@@ -97,16 +98,18 @@ void draw()
     //pwm_red1.write( scrollBar_red1.int_value );
     //pwm_green1.write( scrollBar_green1.int_value );
     //pwm_blue1.write( scrollBar_blue1.int_value );
+    /*
     led_write(int_rpi_channal_pwm_red1, scrollBar_red1.int_value);
     led_write(int_rpi_channal_pwm_green1, scrollBar_green1.int_value);
     led_write(int_rpi_channal_pwm_blue1, scrollBar_blue1.int_value);
+    */
   }
   else
   {
     color_spin_1();
   }
   
-  led_write(int_rpi_channal_pwm_blue3, scrollBar_blue3.int_value);
+  //led_write(int_rpi_channal_pwm_blue3, scrollBar_blue3.int_value);
   //text(int_test_counter, 100, 500);
   //color_spin_1(); 
 }

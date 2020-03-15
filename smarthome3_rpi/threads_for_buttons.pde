@@ -44,10 +44,10 @@ void bed_LED()
 {
   if (rectButton_bedLED.b_click == true)
   {
-    GPIO.digitalWrite(int_rpi_channal_bedLED, GPIO.HIGH);
+    //GPIO.digitalWrite(int_rpi_channal_bedLED, GPIO.HIGH);
   }
   else
   {
-    GPIO.digitalWrite(int_rpi_channal_bedLED, GPIO.LOW);
+    //GPIO.digitalWrite(int_rpi_channal_bedLED, GPIO.LOW);
   }
 }

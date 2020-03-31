@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html>
+
+    <script type="text/javascript" charset="utf-8">
+        function httpGetAsync(method, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", window.location.href + method, true);
+            xmlHttp.send(null);
+        }
+
+        function led_1_off() {
+            httpGetAsync("led_1/off", function(){ console.log("Done"); });
+        }
+
+        function led_1_10() {
+            httpGetAsync("led_1/10", function(){ console.log("Done"); });
+        }   
+
+        function led_1_20() {
+            httpGetAsync("led_1/20", function(){ console.log("Done"); });
+        }        
+
+        function led_1_30() {
+            httpGetAsync("led_1/30", function(){ console.log("Done"); });
+        }                     
+
+        function led_1_40() {
+            httpGetAsync("led_1/40", function(){ console.log("Done"); });
+        }  
+
+        function led_1_50() {
+            httpGetAsync("led_1/50", function(){ console.log("Done"); });
+        }  
+
+        function led_1_60() {
+            httpGetAsync("led_1/60", function(){ console.log("Done"); });
+        }  
+
+        function led_1_70() {
+            httpGetAsync("led_1/70", function(){ console.log("Done"); });
+        }  
+
+        function led_1_80() {
+            httpGetAsync("led_1/80", function(){ console.log("Done"); });
+        }  
+
+        function led_1_90() {
+            httpGetAsync("led_1/90", function(){ console.log("Done"); });
+        }  
+
+        function led_1_100() {
+            httpGetAsync("led_1/100", function(){ console.log("Done"); });
+        }  
+  </script>
+
     <head>
         <meta charset="utf-8">
         <meta name="description" lang="ru" content="Разработка">
         <meta name="description" lang="en" content="Development">
         <meta name="keywords" lang="ru" content="Эль-никИтос, печатные платы, микроэлектроника, 3D-моделирование">
         <meta name="keywords" lang="en" content="El-Nikitos, PCB, microelectronics, 3D-modeling">
+
+        <link rel="shortcut icon" href="resource/favicon.jpg" type="image/jpg">
 
         <title>
             Эль-никИтос: разработка электроники
@@ -14,55 +73,150 @@
         <style>
             body {
                 background-color: white; 
-                /*background-image: linear-gradient( 90deg,transparent, white,white,white,white,white,white,white,white, transparent), url(resource/ni.jpg);
-                background-size: 10%;*/
             } 
             p {
                 color: black;
                 font-family: Arial, 'Times New Roman', serif;
+                font-size: 200%
             }
             div {
                 color: black;
                 font-family: Arial, 'Times New Roman', serif;
             }
+
+            .button_red_led {
+                display: inline-block; 
+                background-color: #DC143C; 
+                border: none; border-radius: 5px; 
+                color: white; 
+                padding: 1% 0.3%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+
+            .button_green_led {
+                display: inline-block; 
+                background-color: #9ACD32; 
+                border: none; border-radius: 5px; 
+                color: white; 
+                padding: 1% 0.3%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+
+            .button_blue_led {
+                display: inline-block; 
+                background-color: #00CED1; 
+                border: none; border-radius: 5px; 
+                color: white; 
+                padding: 1% 0.3%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+              
         </style>
 
     </head>
 
     <body lang=RU>
         <div align="center" style="font-size: 100%">
-            <img src="resource/el-nikitos-normal.jpg" alt="LOGO: El-Nikitos (Эль-никИтос)" width="40%">
+            <img src="resource/el-nikitos-normal.jpg" alt="LOGO: El-Nikitos (Эль-никИтос)" width="600px">
         </div>
 
-        <p align="center" style="font-size: 200%">
-            <b>Область разработки:</b>
+        <p align="center">
+            <b>Подсветка спальни:</b>
         </p>
 
-        <p align="center" style="font-size: 200%">
+        <p align="center">
+            <button class="button button_red_led" onclick="led_1_off();">0%</button>
+            <button class="button button_red_led" onclick="led_1_10();">10%</button>
+            <button class="button button_red_led" onclick="led_1_20();">20%</button>
+            <button class="button button_red_led" onclick="led_1_30();">30%</button>
+            <button class="button button_red_led" onclick="led_1_40();">40%</button>
+            <button class="button button_red_led" onclick="led_1_50();">50%</button>
+            <button class="button button_red_led" onclick="led_1_60();">60%</button>
+            <button class="button button_red_led" onclick="led_1_70();">70%</button>
+            <button class="button button_red_led" onclick="led_1_80();">80%</button>
+            <button class="button button_red_led" onclick="led_1_90();">90%</button>
+            <button class="button button_red_led" onclick="led_1_100();">100%</button>
+        </p>
+
+        <p align="center">
+            <button class="button button_green_led" onclick="ledOn();">0%</button>
+            <button class="button button_green_led" onclick="ledOn();">10%</button>
+            <button class="button button_green_led" onclick="ledOn();">20%</button>
+            <button class="button button_green_led" onclick="ledOn();">30%</button>
+            <button class="button button_green_led" onclick="ledOn();">40%</button>
+            <button class="button button_green_led" onclick="ledOn();">50%</button>
+            <button class="button button_green_led" onclick="ledOn();">60%</button>
+            <button class="button button_green_led" onclick="ledOn();">70%</button>
+            <button class="button button_green_led" onclick="ledOn();">80%</button>
+            <button class="button button_green_led" onclick="ledOn();">90%</button>
+            <button class="button button_green_led" onclick="ledOn();">100%</button>
+        </p>
+
+        <p align="center">
+            <button class="button button_blue_led" onclick="ledOn();">0%</button>
+            <button class="button button_blue_led" onclick="ledOn();">10%</button>
+            <button class="button button_blue_led" onclick="ledOn();">20%</button>
+            <button class="button button_blue_led" onclick="ledOn();">30%</button>
+            <button class="button button_blue_led" onclick="ledOn();">40%</button>
+            <button class="button button_blue_led" onclick="ledOn();">50%</button>
+            <button class="button button_blue_led" onclick="ledOn();">60%</button>
+            <button class="button button_blue_led" onclick="ledOn();">70%</button>
+            <button class="button button_blue_led" onclick="ledOn();">80%</button>
+            <button class="button button_blue_led" onclick="ledOn();">90%</button>
+            <button class="button button_blue_led" onclick="ledOn();">100%</button>
+        </p>
+
+        <p align="center">
+            <b>Подсветка рабочей зоны:</b>
+        </p>
+
+        <div align="center" style="font-size: 100%">
+            <img src="resource/development_logo_white.jpg" alt="LOGO: scope of development" width="400px">
+        </div>
+
+        <p align="center">
+            <b>Области знаний:</b>
+        </p>
+
+        <p align="center">
+            <img src="resource/logo/micro.jpg" alt="LOGO: микроэлектроника" height="35px">
             Микроэлектроника - печатные платы и модули
         </p>
 
-        <p align="center" style="font-size: 200%">
+        <p align="center">
+            <img src="resource/logo/orange.jpg" alt="LOGO: средства автоматизации" height="35px">
             Средства малой автоматизации
         </p>
 
-        <p align="center" style="font-size: 200%">
+        <p align="center">
+            <img src="resource/logo/transformer.jpg" alt="LOGO: средства автоматизации" height="35px">
             Силовая электроника и преобразователи
         </p>
 
-        <p align="center" style="font-size: 200%">
+        <p align="center">
             ***
         </p>
 
-        <p align="center" style="font-size: 200%">
+        <p align="center">
+            <img src="resource/logo/lego.jpg" alt="LOGO: средства автоматизации" height="35px">
             Корпуса и конструкции
         </p>
 
-        <p align="center" style="font-size: 200%">
+        <p align="center">
+            <img src="resource/logo/3dprint.jpg" alt="LOGO: средства автоматизации" height="35px">
             3D-печать
         </p>
 
-        <p align="center" style="font-size: 200%">
+        <p align="center">
             ***
         </p>
 
@@ -71,5 +225,6 @@
             <br>
             <a href="mailto:info@el-nikitos.ru">info@el-nikitos.ru</a>
         </p>
+
     </body>
 </html>

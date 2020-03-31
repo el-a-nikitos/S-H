@@ -1,18 +1,234 @@
 <!DOCTYPE html>
 <html>
+
+    <script type="text/javascript" charset="utf-8">
+        function httpGetAsync(method, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", window.location.href + method, true);
+            xmlHttp.send(null);
+        }
+
+        function led_1_off() {
+            httpGetAsync("led_1_off", function(){ console.log("Done"); });
+        }
+
+        function led_1_20() {
+            httpGetAsync("led_1_20", function(){ console.log("Done"); });
+        }                     
+
+        function led_1_40() {
+            httpGetAsync("led_1_40", function(){ console.log("Done"); });
+        }  
+
+        function led_1_60() {
+            httpGetAsync("led_1_60", function(){ console.log("Done"); });
+        } 
+
+        function led_1_80() {
+            httpGetAsync("led_1_80", function(){ console.log("Done"); });
+        } 
+
+        function led_1_100() {
+            httpGetAsync("led_1_100", function(){ console.log("Done"); });
+        }  
+
+        function led_2_off() {
+            httpGetAsync("led_2_off", function(){ console.log("Done"); });
+        } 
+
+        function led_2_20() {
+            httpGetAsync("led_2_20", function(){ console.log("Done"); });
+        }                    
+
+        function led_2_40() {
+            httpGetAsync("led_2_40", function(){ console.log("Done"); });
+        } 
+
+        function led_2_60() {
+            httpGetAsync("led_2_60", function(){ console.log("Done"); });
+        }  
+
+        function led_2_80() {
+            httpGetAsync("led_2_80", function(){ console.log("Done"); });
+        }  
+
+        function led_2_100() {
+            httpGetAsync("led_2_100", function(){ console.log("Done"); });
+        } 
+
+        function led_3_off() {
+            httpGetAsync("led_3_off", function(){ console.log("Done"); });
+        } 
+
+        function led_3_20() {
+            httpGetAsync("led_3_20", function(){ console.log("Done"); });
+        }                    
+
+        function led_3_40() {
+            httpGetAsync("led_3_40", function(){ console.log("Done"); });
+        } 
+
+        function led_3_60() {
+            httpGetAsync("led_3_60", function(){ console.log("Done"); });
+        }  
+
+        function led_3_80() {
+            httpGetAsync("led_3_80", function(){ console.log("Done"); });
+        }  
+
+        function led_3_100() {
+            httpGetAsync("led_3_100", function(){ console.log("Done"); });
+        } 
+
+        function led_4_off() {
+            httpGetAsync("led_4_off", function(){ console.log("Done"); });
+        } 
+
+        function led_4_100() {
+            httpGetAsync("led_4_100", function(){ console.log("Done"); });
+        } 
+
+        function led_5_off() {
+            httpGetAsync("led_5_off", function(){ console.log("Done"); });
+        } 
+
+        function led_5_100() {
+            httpGetAsync("led_5_100", function(){ console.log("Done"); });
+        } 
+  </script>
+
     <head>
         <meta charset="utf-8">
+        <meta name="description" lang="ru" content="Разработка">
         <meta name="description" lang="en" content="Development">
+        <meta name="keywords" lang="ru" content="Эль-никИтос, печатные платы, микроэлектроника, 3D-моделирование">
         <meta name="keywords" lang="en" content="El-Nikitos, PCB, microelectronics, 3D-modeling">
 
-        <meta http-equiv="refresh" content="0; url=main_white.html">
-        
+        <link rel="shortcut icon" href="resource/favicon.jpg" type="image/jpg">
+
         <title>
-            El-Nikitos: microelectronic development
+            Эль-никИтос: разработка электроники
         </title>
+
+        <style>
+            body {
+                background-color: white; 
+            } 
+            p {
+                color: black;
+                font-family: Arial, 'Times New Roman', serif;
+                font-size: 200%
+            }
+            div {
+                color: black;
+                font-family: Arial, 'Times New Roman', serif;
+            }
+
+            .button_red_led {
+                display: inline-block; 
+                background-color: #DC143C; 
+                border: none; border-radius: 5px; 
+                color: white; 
+                padding: 1% 4%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+
+            .button_green_led {
+                display: inline-block; 
+                background-color: #9ACD32; 
+                border: none; border-radius: 5px; 
+                color: white; 
+                padding: 1% 4%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+
+            .button_blue_led {
+                display: inline-block; 
+                background-color: #00CED1; 
+                border: none; border-radius: 5px; 
+                color: white; 
+                padding: 1% 4%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+              
+        </style>
+
     </head>
 
-    <body>
-        
+    <body lang=RU>
+        <div align="center" style="font-size: 100%">
+            <img src="resource/el-nikitos-normal.jpg" alt="LOGO: El-Nikitos (Эль-никИтос)" width="600px">
+        </div>
+
+        <p align="center">
+            <b>Подсветка спальни:</b>
+        </p>
+
+        <p align="center">
+            <button class="button button_red_led" onclick="led_1_off();">0%</button>
+        <!--
+            <button class="button button_red_led" onclick="led_1_20();">20%</button>
+            <button class="button button_red_led" onclick="led_1_40();">40%</button>
+            <button class="button button_red_led" onclick="led_1_60();">60%</button>
+            <button class="button button_red_led" onclick="led_1_80();">80%</button>
+        -->
+            <button class="button button_red_led" onclick="led_1_100();">100%</button>
+        </p>
+
+        <p align="center">
+            <button class="button button_green_led" onclick="led_2_off();">0%</button>
+        <!--
+            <button class="button button_green_led" onclick="led_2_20();">20%</button>
+            <button class="button button_green_led" onclick="led_2_40();">40%</button>
+            <button class="button button_green_led" onclick="led_2_60();">60%</button>
+            <button class="button button_green_led" onclick="led_2_80();">80%</button>
+        -->
+            <button class="button button_green_led" onclick="led_2_100();">100%</button>
+        </p>
+
+        <p align="center">
+            <button class="button button_blue_led" onclick="led_3_off();">0%</button>
+        <!--
+            <button class="button button_blue_led" onclick="led_3_20();">20%</button>
+            <button class="button button_blue_led" onclick="led_3_40();">40%</button>
+            <button class="button button_blue_led" onclick="led_3_60();">60%</button>
+            <button class="button button_blue_led" onclick="led_3_80();">80%</button>
+        -->
+            <button class="button button_blue_led" onclick="led_3_100();">100%</button>
+        </p>
+
+        <p align="center">
+            <b>Подсветка рабочей зоны:</b>
+        </p>
+
+        <p align="center">
+            <button class="button button_blue_led" onclick="led_4_off();">0%</button>
+            <!---->
+            <button class="button button_blue_led" onclick="led_4_100();">100%</button>
+        </p>
+
+        <p align="center">
+            <b>Подсветка комнаты, где никто не живет:</b>
+        </p>
+
+        <p align="center">
+            <button class="button button_blue_led" onclick="led_5_off();">0%</button>
+            <!---->
+            <button class="button button_blue_led" onclick="led_5_100();">100%</button>
+        </p>
+
     </body>
 </html>

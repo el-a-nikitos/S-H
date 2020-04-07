@@ -99,19 +99,27 @@
         function led_5_100() {
             httpGetAsync("led_5_100", function(){ console.log("Done"); });
         } 
+
+        function led_turn_off_1() {
+            led_1_off();
+            led_2_off();
+            led_3_off();
+        }
+
+        function led_turn_on_1() {
+            led_1_100();
+            led_2_100();
+            led_3_100();
+        }
   </script>
 
     <head>
         <meta charset="utf-8">
-        <meta name="description" lang="ru" content="Разработка">
-        <meta name="description" lang="en" content="Development">
-        <meta name="keywords" lang="ru" content="Эль-никИтос, печатные платы, микроэлектроника, 3D-моделирование">
-        <meta name="keywords" lang="en" content="El-Nikitos, PCB, microelectronics, 3D-modeling">
 
         <link rel="shortcut icon" href="resource/favicon.jpg" type="image/jpg">
 
         <title>
-            Эль-никИтос: разработка электроники
+            Эль-никИтос: управление светом
         </title>
 
         <style>
@@ -155,6 +163,30 @@
             .button_blue_led {
                 display: inline-block; 
                 background-color: #00CED1; 
+                border: none; border-radius: 5px; 
+                color: white; 
+                padding: 1% 4%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+
+            .button_L_grey {
+                display: inline-block; 
+                background-color: #B0C4DE; 
+                border: none; border-radius: 5px; 
+                color: black; 
+                padding: 1% 4%; 
+                text-decoration: none; 
+                font-size: 90%; 
+                margin: 0%; 
+                cursor: pointer;
+            }
+
+            .button_D_grey {
+                display: inline-block; 
+                background-color: #708090; 
                 border: none; border-radius: 5px; 
                 color: white; 
                 padding: 1% 4%; 
@@ -208,6 +240,11 @@
             <button class="button button_blue_led" onclick="led_3_80();">80%</button>
         -->
             <button class="button button_blue_led" onclick="led_3_100();">100%</button>
+        </p>
+
+        <p align="center">
+            <button class="button button_L_grey" onclick="led_turn_on_1();">ВКЛ всё</button>
+            <button class="button button_D_grey" onclick="led_turn_off_1();">ВЫКЛ всё</button>
         </p>
 
         <p align="center">

@@ -12,6 +12,7 @@ led_1_red_pin = 13
 led_1_green_pin = 12
 led_1_blue_pin = 6
 led_3_blue_pin = 11
+led_bed_pin = 5
 
 def raspberrypi_init():
     try:
@@ -20,6 +21,7 @@ def raspberrypi_init():
         GPIO.setup(led_1_green_pin, GPIO.OUT)
         GPIO.setup(led_1_blue_pin, GPIO.OUT)
         GPIO.setup(led_3_blue_pin, GPIO.OUT)
+        GPIO.setup(led_bed_pin, GPIO.OUT)
     except:
         pass
 
@@ -122,6 +124,20 @@ class ServerHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             rasperrypi_pinout(led_3_blue_pin, True)
+            self.wfile.write(b"OK")
+
+        elif self.path == "/led_bed_on":
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            rasperrypi_pinout(led_bed_pin, True)
+            self.wfile.write(b"OK")
+
+        elif self.path == "/led_bed_off":
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            rasperrypi_pinout(led_bed_pin, False)
             self.wfile.write(b"OK")
 
         else:

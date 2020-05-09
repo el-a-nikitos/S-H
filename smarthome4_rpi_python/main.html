@@ -12,6 +12,14 @@
             xmlHttp.send(null);
         }
 
+        function led_bed_on() {
+            httpGetAsync("led_bed_on", function(){ console.log("Done"); });
+        }
+
+        function led_bed_off() {
+            httpGetAsync("led_bed_off", function(){ console.log("Done"); });
+        }
+
         function led_1_off() {
             httpGetAsync("led_1_off", function(){ console.log("Done"); });
         }
@@ -104,6 +112,7 @@
             led_1_off();
             led_2_off();
             led_3_off();
+            led_bed_off();
         }
 
         function led_turn_on_1() {
@@ -243,8 +252,13 @@
         </p>
 
         <p align="center">
-            <button class="button button_L_grey" onclick="led_turn_on_1();">ВКЛ всё</button>
+            <button class="button button_D_grey" onclick="led_bed_off();">споты ВЫКЛ</button>
+            <button class="button button_L_grey" onclick="led_bed_on();">споты ВКЛ</button>
+        </p>
+
+        <p align="center">
             <button class="button button_D_grey" onclick="led_turn_off_1();">ВЫКЛ всё</button>
+            <button class="button button_L_grey" onclick="led_turn_on_1();">ВКЛ всё</button>
         </p>
 
         <p align="center">

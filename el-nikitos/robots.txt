@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /robots.txt
+Allow: /resource/*
+Allow: /robots/*
+Disallow: /*/*
+Disallow: /*.*
+Disallow: /*?*
+Host: el-nikitos.ru

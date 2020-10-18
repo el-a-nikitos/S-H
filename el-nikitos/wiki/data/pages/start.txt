@@ -1,0 +1,5 @@
+====== Это стартовая страница ======
+
+[[http://el-nikitos.ru|Возврат к визитке]]
+
+[[http://el-nikitos.ru/wiki/doku.php?id=start&do=index|Оглавление]]
